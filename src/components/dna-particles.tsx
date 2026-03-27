@@ -23,8 +23,8 @@ export function DNAParticles() {
         resize()
         window.addEventListener('resize', resize)
 
-        const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number; speed: number }[] = []
-        const numParticles = 200
+        const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number }[] = []
+        const numParticles = 180
         const w = () => canvas.offsetWidth
         const h = () => canvas.offsetHeight
 
@@ -35,8 +35,7 @@ export function DNAParticles() {
                 vx: (Math.random() - 0.5) * 0.3,
                 vy: (Math.random() - 0.5) * 0.3,
                 size: Math.random() * 2 + 0.5,
-                opacity: Math.random() * 0.5 + 0.1,
-                speed: Math.random() * 0.5 + 0.2,
+                opacity: Math.random() * 0.4 + 0.1,
             })
         }
 
@@ -44,7 +43,7 @@ export function DNAParticles() {
             ctx.clearRect(0, 0, w(), h())
             time += 0.003
 
-            // Draw DNA helix strands
+            // DNA helix - warm brown/amber tones for light mode
             const centerX = w() * 0.65
             const amplitude = w() * 0.12
             const verticalSpacing = 8
@@ -56,42 +55,39 @@ export function DNAParticles() {
                 const depth1 = (Math.cos(phase) + 1) / 2
                 const depth2 = (Math.cos(phase + Math.PI) + 1) / 2
 
-                // Strand 1
+                // Strand 1 - warm brown
                 ctx.beginPath()
                 ctx.arc(x1, y, 1.5 + depth1 * 1.5, 0, Math.PI * 2)
-                ctx.fillStyle = `rgba(16, 185, 129, ${0.15 + depth1 * 0.4})`
+                ctx.fillStyle = `rgba(139, 90, 43, ${0.1 + depth1 * 0.3})`
                 ctx.fill()
 
-                // Strand 2
+                // Strand 2 - warm amber
                 ctx.beginPath()
                 ctx.arc(x2, y, 1.5 + depth2 * 1.5, 0, Math.PI * 2)
-                ctx.fillStyle = `rgba(6, 182, 212, ${0.15 + depth2 * 0.4})`
+                ctx.fillStyle = `rgba(180, 120, 60, ${0.1 + depth2 * 0.3})`
                 ctx.fill()
 
-                // Connecting rungs (every few steps)
+                // Connecting rungs
                 if (y % (verticalSpacing * 4) < verticalSpacing) {
-                    const rungOpacity = Math.min(depth1, depth2) * 0.2 + 0.05
+                    const rungOpacity = Math.min(depth1, depth2) * 0.15 + 0.03
                     ctx.beginPath()
                     ctx.moveTo(x1, y)
                     ctx.lineTo(x2, y)
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${rungOpacity})`
+                    ctx.strokeStyle = `rgba(100, 70, 30, ${rungOpacity})`
                     ctx.lineWidth = 0.5
                     ctx.stroke()
                 }
             }
 
-            // Draw floating particles
+            // Floating particles - warm tones
             for (const p of particles) {
                 p.x += p.vx
                 p.y += p.vy
-
-                // Gentle drift
                 p.vx += (Math.random() - 0.5) * 0.01
                 p.vy += (Math.random() - 0.5) * 0.01
                 p.vx *= 0.99
                 p.vy *= 0.99
 
-                // Wrap around
                 if (p.x < 0) p.x = w()
                 if (p.x > w()) p.x = 0
                 if (p.y < 0) p.y = h()
@@ -101,11 +97,11 @@ export function DNAParticles() {
 
                 ctx.beginPath()
                 ctx.arc(p.x, p.y, p.size * pulse, 0, Math.PI * 2)
-                ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity * pulse * 0.5})`
+                ctx.fillStyle = `rgba(100, 70, 40, ${p.opacity * pulse * 0.4})`
                 ctx.fill()
             }
 
-            // Draw connections between nearby particles
+            // Connection lines - subtle warm
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x
@@ -113,11 +109,11 @@ export function DNAParticles() {
                     const dist = Math.sqrt(dx * dx + dy * dy)
 
                     if (dist < 100) {
-                        const lineOpacity = (1 - dist / 100) * 0.08
+                        const lineOpacity = (1 - dist / 100) * 0.06
                         ctx.beginPath()
                         ctx.moveTo(particles[i].x, particles[i].y)
                         ctx.lineTo(particles[j].x, particles[j].y)
-                        ctx.strokeStyle = `rgba(16, 185, 129, ${lineOpacity})`
+                        ctx.strokeStyle = `rgba(139, 90, 43, ${lineOpacity})`
                         ctx.lineWidth = 0.5
                         ctx.stroke()
                     }

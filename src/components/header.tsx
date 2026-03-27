@@ -38,7 +38,7 @@ export const HeroHeader = () => {
                                 href="/"
                                 aria-label="home"
                                 className="flex items-center gap-2 text-xl font-bold tracking-tight">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 text-sm font-black text-zinc-950">IX</div>
+                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-black text-primary-foreground">IX</div>
                                 IMMUNEX
                             </Link>
 

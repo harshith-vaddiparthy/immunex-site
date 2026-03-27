@@ -13,8 +13,8 @@ const GithubIcon = ({ className }: { className?: string }) => (
 
 const DataSourceBadge = ({ name, count }: { name: string; count: string }) => (
     <div className="flex items-center gap-2 whitespace-nowrap">
-        <span className="text-sm font-semibold">{name}</span>
-        <span className="text-xs opacity-50">{count}</span>
+        <span className="text-sm font-semibold text-foreground">{name}</span>
+        <span className="text-xs text-muted-foreground">{count}</span>
     </div>
 )
 
@@ -53,14 +53,14 @@ export default function HeroSection() {
                         <div className="aspect-2/3 relative z-10 flex flex-col justify-end px-6 lg:aspect-video">
                             <div className="mx-auto w-full max-w-7xl pb-6 lg:px-12 lg:pb-32">
                                 <div className="max-w-xl">
-                                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-400">
+                                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
                                         <span className="relative flex h-2 w-2">
-                                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                                            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
                                         </span>
                                         Encode: AI for Science Fellowship
                                     </div>
-                                    <h1 className="text-balance text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight">Drug repurposing, <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">systematized.</span></h1>
+                                    <h1 className="text-balance text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight">Drug repurposing, <span className="text-primary">systematized.</span></h1>
                                     <p className="mt-6 text-balance text-lg text-muted-foreground">Autonomous multi-agent AI that identifies approved drugs for repurposing as innate immune modulators. Five specialized agents. Nine data sources. Evidence-graded hypotheses.</p>
 
                                     <div className="mt-8 flex items-center gap-2">
@@ -69,7 +69,7 @@ export default function HeroSection() {
                                             <span className="text-nowrap">View Source</span>
                                             <ChevronRight className="ml-1" />
                                         </Button>
-                                        <Button key={2} size="lg" variant="ghost" className="h-12 rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5" render={<Link href="#architecture" />} nativeButton={false}>
+                                        <Button key={2} size="lg" variant="ghost" className="h-12 rounded-full px-5 text-base" render={<Link href="#architecture" />} nativeButton={false}>
                                             <span className="text-nowrap">Explore Architecture</span>
                                         </Button>
                                     </div>
@@ -83,7 +83,7 @@ export default function HeroSection() {
                                             { value: '7', label: 'Pathways covered' },
                                         ].map((stat, i) => (
                                             <div key={i}>
-                                                <div className="text-3xl font-bold">{stat.value}</div>
+                                                <div className="text-3xl font-bold text-foreground">{stat.value}</div>
                                                 <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
                                             </div>
                                         ))}
@@ -91,7 +91,7 @@ export default function HeroSection() {
                                 </div>
                             </div>
                         </div>
-                        <div className="aspect-2/3 pointer-events-none absolute inset-1 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
+                        <div className="aspect-2/3 pointer-events-none absolute inset-1 overflow-hidden rounded-3xl border lg:aspect-video lg:rounded-[3rem]">
                             <DNAParticles />
                         </div>
                     </div>
@@ -102,9 +102,9 @@ export default function HeroSection() {
                     <div className="group relative m-auto max-w-7xl px-6">
                         <div className="flex flex-col items-center md:flex-row">
                             <div className="md:max-w-44 md:border-r md:pr-6">
-                                <p className="text-end text-sm">Integrating 9 biomedical databases</p>
+                                <p className="text-end text-sm text-muted-foreground">Integrating 9 biomedical databases</p>
                             </div>
-                            <div className="**:fill-foreground relative py-6 md:w-[calc(100%-11rem)]">
+                            <div className="relative py-6 md:w-[calc(100%-11rem)]">
                                 <InfiniteSlider speedOnHover={20} speed={40} gap={80}>
                                     <DataSourceBadge name="PubMed" count="36M+" />
                                     <DataSourceBadge name="ChEMBL" count="2.4M" />
@@ -131,7 +131,7 @@ export default function HeroSection() {
                     <div className="mx-auto max-w-7xl">
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <p className="text-sm font-medium text-emerald-400 mb-4">THE PROBLEM</p>
+                                <p className="text-sm font-medium text-primary mb-4">THE PROBLEM</p>
                                 <h2 className="text-4xl font-bold tracking-tight">The innate immune system is an untapped therapeutic frontier</h2>
                                 <p className="mt-6 text-muted-foreground leading-relaxed">
                                     While adaptive immunity gave us vaccines and checkpoint inhibitors, precision modulation of innate immune pathways remains wide open. Hundreds of approved drugs have documented but unstudied effects on toll-like receptors, inflammasomes, trained immunity, and interferon signaling.
@@ -142,12 +142,12 @@ export default function HeroSection() {
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 {[
-                                    { value: '90%', label: 'of drugs fail clinical trials', color: 'text-red-400' },
-                                    { value: '35%', label: 'of "transformative" FDA drugs are repurposed', color: 'text-emerald-400' },
-                                    { value: '$2.6B', label: 'average cost to develop a new drug', color: 'text-amber-400' },
-                                    { value: '36M+', label: 'PubMed articles with buried signal', color: 'text-blue-400' },
+                                    { value: '90%', label: 'of drugs fail clinical trials', color: 'text-red-600' },
+                                    { value: '35%', label: 'of "transformative" FDA drugs are repurposed', color: 'text-primary' },
+                                    { value: '$2.6B', label: 'average cost to develop a new drug', color: 'text-amber-600' },
+                                    { value: '36M+', label: 'PubMed articles with buried signal', color: 'text-blue-600' },
                                 ].map((stat, i) => (
-                                    <div key={i} className="rounded-2xl border p-6">
+                                    <div key={i} className="rounded-2xl border bg-card p-6">
                                         <div className={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
                                         <div className="text-sm text-muted-foreground mt-2">{stat.label}</div>
                                     </div>
@@ -158,9 +158,9 @@ export default function HeroSection() {
                 </section>
 
                 {/* Architecture */}
-                <section id="architecture" className="py-24 px-6 lg:px-12 bg-muted/30">
+                <section id="architecture" className="py-24 px-6 lg:px-12 bg-accent/30">
                     <div className="mx-auto max-w-7xl">
-                        <p className="text-sm font-medium text-emerald-400 mb-4">MULTI-AGENT ARCHITECTURE</p>
+                        <p className="text-sm font-medium text-primary mb-4">MULTI-AGENT ARCHITECTURE</p>
                         <h2 className="text-4xl font-bold tracking-tight mb-4">Five agents. One pipeline.</h2>
                         <p className="text-muted-foreground max-w-2xl mb-16">
                             Each agent handles one stage of the repurposing pipeline. Evidence converges from multiple independent sources to produce confidence-graded hypotheses.
@@ -168,13 +168,13 @@ export default function HeroSection() {
 
                         <div className="space-y-4">
                             {agents.map((agent, i) => (
-                                <div key={i} className="group rounded-2xl border p-8 hover:border-foreground/20 transition-all">
+                                <div key={i} className="group rounded-2xl border bg-card p-8 hover:border-primary/30 transition-all">
                                     <div className="flex flex-col md:flex-row md:items-start gap-6">
                                         <div className="flex items-center gap-4 md:w-64 shrink-0">
-                                            <span className="text-3xl font-bold opacity-20 group-hover:opacity-50 group-hover:text-emerald-500 transition-all">{agent.num}</span>
+                                            <span className="text-3xl font-bold text-muted-foreground/30 group-hover:text-primary/50 transition-all">{agent.num}</span>
                                             <div>
-                                                <h3 className="font-semibold">{agent.name}</h3>
-                                                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${agent.status === 'Operational' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-blue-500/10 text-blue-400'}`}>
+                                                <h3 className="font-semibold text-foreground">{agent.name}</h3>
+                                                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${agent.status === 'Operational' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
                                                     {agent.status}
                                                 </span>
                                             </div>
@@ -187,11 +187,11 @@ export default function HeroSection() {
 
                         <div className="mt-12 flex flex-wrap items-center justify-center gap-3 text-sm">
                             {['PubMed', '\u2192', 'Scanner', '\u2192', 'KG + GNN', '\u2192', 'Hypothesis', '\u2192', 'Safety', '\u2192'].map((item, i) => (
-                                <span key={i} className={item === '\u2192' ? 'text-muted-foreground' : 'px-3 py-1.5 rounded-lg border'}>
+                                <span key={i} className={item === '\u2192' ? 'text-muted-foreground' : 'px-3 py-1.5 rounded-lg border bg-card text-foreground'}>
                                     {item}
                                 </span>
                             ))}
-                            <span className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-medium">
+                            <span className="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/30 text-primary font-medium">
                                 Ranked Candidates
                             </span>
                         </div>
@@ -201,7 +201,7 @@ export default function HeroSection() {
                 {/* Pathways */}
                 <section id="pathways" className="py-24 px-6 lg:px-12">
                     <div className="mx-auto max-w-7xl">
-                        <p className="text-sm font-medium text-emerald-400 mb-4">TARGET PATHWAYS</p>
+                        <p className="text-sm font-medium text-primary mb-4">TARGET PATHWAYS</p>
                         <h2 className="text-4xl font-bold tracking-tight mb-4">24 targets across 7 innate immune pathways</h2>
                         <p className="text-muted-foreground max-w-2xl mb-12">
                             Selected for therapeutic relevance and druggability.
@@ -209,12 +209,12 @@ export default function HeroSection() {
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                             {pathways.map((p, i) => (
-                                <div key={i} className="rounded-2xl border p-6 hover:border-foreground/20 transition-colors">
-                                    <h3 className="font-semibold text-lg">{p.name}</h3>
+                                <div key={i} className="rounded-2xl border bg-card p-6 hover:border-primary/30 transition-colors">
+                                    <h3 className="font-semibold text-lg text-foreground">{p.name}</h3>
                                     <p className="text-xs text-muted-foreground mt-1 mb-4">{p.role}</p>
                                     <div className="flex flex-wrap gap-1.5">
                                         {p.targets.map((t, j) => (
-                                            <span key={j} className="text-xs px-2 py-1 rounded-md border text-muted-foreground">{t}</span>
+                                            <span key={j} className="text-xs px-2 py-1 rounded-md border bg-accent text-accent-foreground">{t}</span>
                                         ))}
                                     </div>
                                 </div>
@@ -226,8 +226,8 @@ export default function HeroSection() {
                 {/* ARIA Alignment */}
                 <section className="py-24 px-6 lg:px-12">
                     <div className="mx-auto max-w-7xl">
-                        <div className="rounded-3xl border border-indigo-500/20 bg-indigo-500/5 p-12 lg:p-16">
-                            <p className="text-sm font-medium text-indigo-400 mb-4">ARIA ALIGNMENT</p>
+                        <div className="rounded-3xl border border-primary/20 bg-primary/5 p-12 lg:p-16">
+                            <p className="text-sm font-medium text-primary mb-4">ARIA ALIGNMENT</p>
                             <h2 className="text-4xl font-bold tracking-tight mb-6">Sculpting Innate Immunity</h2>
                             <p className="text-muted-foreground leading-relaxed max-w-3xl mb-6">
                                 IMMUNEX directly aligns with ARIA&apos;s Sculpting Innate Immunity opportunity space. By systematically identifying existing drugs that modulate innate immune pathways with precision, IMMUNEX supports the development of new therapeutic paradigms - including broad-spectrum antiviral resilience through the &pound;46M Sustained Viral Resilience programme.
@@ -240,20 +240,20 @@ export default function HeroSection() {
                 </section>
 
                 {/* Roadmap */}
-                <section id="roadmap" className="py-24 px-6 lg:px-12 bg-muted/30">
+                <section id="roadmap" className="py-24 px-6 lg:px-12 bg-accent/30">
                     <div className="mx-auto max-w-7xl">
-                        <p className="text-sm font-medium text-emerald-400 mb-4">12-MONTH ROADMAP</p>
+                        <p className="text-sm font-medium text-primary mb-4">12-MONTH ROADMAP</p>
                         <h2 className="text-4xl font-bold tracking-tight mb-12">From prototype to discovery</h2>
 
                         <div className="grid md:grid-cols-3 gap-6">
                             {milestones.map((m, i) => (
-                                <div key={i} className="rounded-2xl border p-8">
-                                    <span className="text-xs font-medium text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-full">{m.period}</span>
-                                    <h3 className="text-2xl font-bold mt-4 mb-6">{m.title}</h3>
+                                <div key={i} className="rounded-2xl border bg-card p-8">
+                                    <span className="text-xs font-medium text-primary bg-primary/10 px-2.5 py-1 rounded-full">{m.period}</span>
+                                    <h3 className="text-2xl font-bold text-foreground mt-4 mb-6">{m.title}</h3>
                                     <ul className="space-y-3">
                                         {m.items.map((item, j) => (
                                             <li key={j} className="flex gap-3 text-sm text-muted-foreground">
-                                                <span className="text-emerald-500 mt-0.5 shrink-0">&#x2713;</span>
+                                                <span className="text-primary mt-0.5 shrink-0">&#x2713;</span>
                                                 {item}
                                             </li>
                                         ))}
@@ -267,14 +267,14 @@ export default function HeroSection() {
                 {/* Builder */}
                 <section className="py-24 px-6 lg:px-12">
                     <div className="mx-auto max-w-7xl">
-                        <div className="rounded-2xl border p-12">
-                            <p className="text-sm font-medium text-amber-400 mb-4">THE BUILDER</p>
-                            <h2 className="text-3xl font-bold">Harshith Vaddiparthy</h2>
+                        <div className="rounded-2xl border bg-card p-12">
+                            <p className="text-sm font-medium text-primary mb-4">THE BUILDER</p>
+                            <h2 className="text-3xl font-bold text-foreground">Harshith Vaddiparthy</h2>
                             <p className="text-muted-foreground mt-1">AI Systems Architect</p>
 
                             <div className="flex flex-wrap gap-2 mt-6">
                                 {['Head of Growth, JustPaid (YC W23)', 'Forbes Technology Council', 'AI Agent Infrastructure'].map((tag, i) => (
-                                    <span key={i} className="text-xs px-3 py-1.5 rounded-full border text-muted-foreground">{tag}</span>
+                                    <span key={i} className="text-xs px-3 py-1.5 rounded-full border bg-accent text-accent-foreground">{tag}</span>
                                 ))}
                             </div>
 
@@ -302,7 +302,7 @@ export default function HeroSection() {
                 <footer className="border-t py-12 px-6 lg:px-12">
                     <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-4">
                         <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                            <div className="flex h-6 w-6 items-center justify-center rounded bg-emerald-500 text-[10px] font-black text-zinc-950">IX</div>
+                            <div className="flex h-6 w-6 items-center justify-center rounded bg-primary text-[10px] font-black text-primary-foreground">IX</div>
                             IMMUNEX &middot; Built for the{' '}
                             <a href="https://encode.pillar.vc" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
                                 Encode Fellowship
