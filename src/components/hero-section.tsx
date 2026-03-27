@@ -5,16 +5,6 @@ import { HeroHeader } from './header'
 import { InfiniteSlider } from '@/components/motion-primitives/infinite-slider'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur'
 import { ChevronRight } from 'lucide-react'
-import { Spotify } from '@/components/ui/svgs/spotify'
-import { VercelFull } from '@/components/ui/svgs/vercel'
-import { SupabaseFull } from '@/components/ui/svgs/supabase'
-import { Hulu } from '@/components/ui/svgs/hulu'
-import { Bolt } from '@/components/ui/svgs/bolt'
-import { FirebaseFull } from '@/components/ui/svgs/firebase'
-import { Beacon } from '@/components/ui/svgs/beacon'
-import { Claude } from '@/components/ui/svgs/claude'
-import { Figma } from '@/components/ui/svgs/figma'
-import { Cisco } from '@/components/ui/svgs/cisco'
 
 export default function HeroSection() {
     return (
@@ -25,13 +15,13 @@ export default function HeroSection() {
                     <div className="">
                         <div className="aspect-2/3 relative z-10 flex flex-col justify-end px-6 lg:aspect-video">
                             <div className="mx-auto w-full max-w-7xl pb-6 lg:px-12 lg:pb-32">
-                                <div className="max-w-lg">
-                                    <h1 className="text-balance text-5xl md:text-6xl xl:text-7xl">Build 10x Faster with NS</h1>
-                                    <p className="mt-6 text-balance text-lg">Highly customizable components.</p>
+                                <div className="max-w-xl">
+                                    <h1 className="text-balance text-5xl md:text-6xl xl:text-7xl">Drug Repurposing, Reimagined</h1>
+                                    <p className="mt-6 text-balance text-lg text-white/80">Five autonomous AI agents systematically mining 36M+ biomedical papers, molecular databases, and clinical evidence to identify approved drugs with untapped potential to modulate innate immunity.</p>
 
                                     <div className="mt-8 flex items-center gap-2">
-                                        <Button size="lg" className="h-12 rounded-full pl-5 pr-3 text-base" render={<Link href="#link" />} nativeButton={false}><span className="text-nowrap">Start Building</span><ChevronRight className="ml-1" /></Button>
-                                        <Button key={2} size="lg" variant="ghost" className="h-12 rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5" render={<Link href="#link" />} nativeButton={false}><span className="text-nowrap">Request a demo</span></Button>
+                                        <Button size="lg" className="h-12 rounded-full pl-5 pr-3 text-base" render={<Link href="https://github.com/harshith-vaddiparthy/immunex" />} nativeButton={false}><span className="text-nowrap">View on GitHub</span><ChevronRight className="ml-1" /></Button>
+                                        <Button key={2} size="lg" variant="ghost" className="h-12 rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5" render={<Link href="#pipeline" />} nativeButton={false}><span className="text-nowrap">How it works</span></Button>
                                     </div>
                                 </div>
                             </div>
@@ -40,6 +30,8 @@ export default function HeroSection() {
                             <video
                                 autoPlay
                                 loop
+                                muted
+                                playsInline
                                 className="not-dark:invert size-full -scale-x-100 object-cover"
                                 src="https://videos.pexels.com/video-files/35968183/15249566_1920_1080_30fps.mp4"></video>
                         </div>
@@ -49,50 +41,22 @@ export default function HeroSection() {
                     <div className="group relative m-auto max-w-7xl px-6">
                         <div className="flex flex-col items-center md:flex-row">
                             <div className="md:max-w-44 md:border-r md:pr-6">
-                                <p className="text-end text-sm">Powering the best teams</p>
+                                <p className="text-end text-sm">Integrated data sources</p>
                             </div>
-                            <div className="**:fill-foreground relative py-6 md:w-[calc(100%-11rem)]">
+                            <div className="relative py-6 md:w-[calc(100%-11rem)]">
                                 <InfiniteSlider
                                     speedOnHover={20}
                                     speed={40}
-                                    gap={112}>
-                                    <Bolt
-                                        height={22}
-                                        width={56}
-                                    />
-                                    <VercelFull
-                                        height={22}
-                                        width={84}
-                                    />
-                                    <SupabaseFull className="h-6" />
-                                    <Hulu
-                                        height={18}
-                                        width={56}
-                                    />
-                                    <Spotify
-                                        height={24}
-                                        width={80}
-                                    />
-                                    <FirebaseFull
-                                        height={24}
-                                        width={80}
-                                    />
-                                    <Beacon
-                                        height={24}
-                                        width={80}
-                                    />
-                                    <Claude
-                                        height={26}
-                                        width={90}
-                                    />
-                                    <Figma
-                                        height={24}
-                                        width={24}
-                                    />
-                                    <Cisco
-                                        height={30}
-                                        width={60}
-                                    />
+                                    gap={80}>
+                                    <DataSourceBadge name="PubMed" count="36M+ articles" />
+                                    <DataSourceBadge name="ChEMBL" count="2.4M compounds" />
+                                    <DataSourceBadge name="DrugBank" count="14K+ drugs" />
+                                    <DataSourceBadge name="BindingDB" count="2.9M data points" />
+                                    <DataSourceBadge name="Reactome" count="2,600+ pathways" />
+                                    <DataSourceBadge name="InnateDB" count="32K+ interactions" />
+                                    <DataSourceBadge name="KEGG" count="500+ pathways" />
+                                    <DataSourceBadge name="FDA FAERS" count="20M+ reports" />
+                                    <DataSourceBadge name="ClinicalTrials.gov" count="500K+ studies" />
                                 </InfiniteSlider>
 
                                 <div className="bg-linear-to-r from-background absolute inset-y-0 left-0 w-20"></div>
@@ -113,5 +77,14 @@ export default function HeroSection() {
                 </section>
             </main>
         </>
+    )
+}
+
+function DataSourceBadge({ name, count }: { name: string; count: string }) {
+    return (
+        <div className="flex items-center gap-2 text-sm">
+            <span className="font-medium text-foreground">{name}</span>
+            <span className="text-muted-foreground">{count}</span>
+        </div>
     )
 }

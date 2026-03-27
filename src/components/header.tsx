@@ -8,10 +8,10 @@ import { useScroll, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 const menuItems = [
-    { name: 'Features', href: '#link' },
-    { name: 'Solution', href: '#link' },
-    { name: 'Pricing', href: '#link' },
-    { name: 'About', href: '#link' },
+    { name: 'Pipeline', href: '#pipeline' },
+    { name: 'Pathways', href: '#pathways' },
+    { name: 'Results', href: '#results' },
+    { name: 'Data Sources', href: '#data' },
 ]
 
 export const HeroHeader = () => {
@@ -81,8 +81,7 @@ export const HeroHeader = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <Button variant="outline" size="sm" render={<Link href="#" />} nativeButton={false}><span>Login</span></Button>
-                                <Button size="sm" render={<Link href="#" />} nativeButton={false}><span>Sign Up</span></Button>
+                                <Button size="sm" render={<Link href="https://github.com/harshith-vaddiparthy/immunex" />} nativeButton={false}><span>GitHub</span></Button>
                             </div>
                         </div>
                     </motion.div>

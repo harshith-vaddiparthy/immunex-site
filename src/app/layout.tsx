@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "IMMUNEX - Autonomous AI for Drug Repurposing in Innate Immunity",
-  description: "Multi-agent AI system that identifies approved drugs for repurposing as innate immune modulators. Five specialized agents. Nine data sources. Evidence-graded hypotheses.",
-  keywords: ["drug repurposing", "innate immunity", "AI", "multi-agent", "NLRP3", "inflammasome", "STING", "TLR", "knowledge graph", "GNN", "Encode Fellowship", "ARIA", "Pillar VC"],
+  description: "Multi-agent AI system that systematically identifies approved drugs for repurposing as innate immune modulators. Five specialized agents. Nine data sources. Evidence-graded hypotheses.",
+  keywords: ["drug repurposing", "innate immunity", "AI", "multi-agent", "NLRP3", "inflammasome", "STING", "TLR", "knowledge graph", "GNN", "biomedical AI", "computational drug discovery"],
   authors: [{ name: "Harshith Vaddiparthy", url: "https://harshith.com" }],
   openGraph: {
     title: "IMMUNEX - Autonomous AI for Drug Repurposing in Innate Immunity",
@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth dark`}>
       <body className="antialiased">
         {children}
       </body>
