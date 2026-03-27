@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { Logo } from '@/components/logo'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import React from 'react'
@@ -7,9 +8,10 @@ import { useScroll, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 const menuItems = [
-    { name: 'Architecture', href: '#architecture' },
-    { name: 'Pathways', href: '#pathways' },
-    { name: 'Roadmap', href: '#roadmap' },
+    { name: 'Features', href: '#link' },
+    { name: 'Solution', href: '#link' },
+    { name: 'Pricing', href: '#link' },
+    { name: 'About', href: '#link' },
 ]
 
 export const HeroHeader = () => {
@@ -37,9 +39,8 @@ export const HeroHeader = () => {
                             <Link
                                 href="/"
                                 aria-label="home"
-                                className="flex items-center gap-2 text-xl font-bold tracking-tight">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-black text-primary-foreground">IX</div>
-                                IMMUNEX
+                                className="flex items-center space-x-2">
+                                <Logo />
                             </Link>
 
                             <button
@@ -80,8 +81,8 @@ export const HeroHeader = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <Button variant="outline" size="sm" render={<Link href="https://github.com/harshith-vaddiparthy/immunex" />} nativeButton={false}><span>GitHub</span></Button>
-                                <Button size="sm" render={<Link href="https://encode.pillar.vc" />} nativeButton={false}><span>Apply</span></Button>
+                                <Button variant="outline" size="sm" render={<Link href="#" />} nativeButton={false}><span>Login</span></Button>
+                                <Button size="sm" render={<Link href="#" />} nativeButton={false}><span>Sign Up</span></Button>
                             </div>
                         </div>
                     </motion.div>

@@ -1,0 +1,1 @@
+export { VercelFull } from './index'
